@@ -1,10 +1,11 @@
+require('dotenv').config({path: "./.env"});
 const express=require("express");
 const mongoose=require("mongoose");
 const bodyParser=require("body-parser");
-const DB = 'mongodb+srv://harshit_22f:hrshtaknrj@cluster0.9q3rzyk.mongodb.net/fitify?retryWrites=true&w=majority';
-mongoose.connect(DB).then(()=>{
+const DB = process.env.DATABASE;
+mongoose.connect(DB,{useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false}).then(()=>{
   console.log("connection successful");
-}).catch((err)=>console.log("no connection"));
+}).catch((err)=>console.log(err));
 const date=require(__dirname+"/date.js")
 const app=express();
 app.set("view engine", "ejs");
@@ -140,7 +141,7 @@ else
 }
 
 });
-app.listen(3000,function()
-{
-  console.log("server at 3000 is active");
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server started on port ${PORT}`);
 });
