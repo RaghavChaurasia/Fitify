@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitify - Trainers</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+<!-- header section starts  -->
+
+<header class="header">
+
+    <a href="/" class="logo"> <i class="fas fa-home"></i> Back to home </a>
+
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+
+    <div class="content">
+        <h3>Welcome <span> <%= newpost.name%></span></h3> <h2 class="chhota">Age: <span><%= newpost.age%> years, </span>Height: <span><%= newpost.height%> cms, </span>Weight: <span><%= newpost.weight%> Kg </span></h2>
+        <p>We bring you a list of <span class="levi"><%= newpost.level.toUpperCase()%></span>  level personal trainers upon your request.</p>
+
+    </div>
+
+</section>
+
+<!-- home section ends -->
+
+
+
+<!-- review section starts  -->
+
+<section class="review" id="review">
+
+    <h1 class="heading"> Trainers for <span>beginners</span> </h1>
+
+    <div class="swiper review-slider">
+
+        <div class="swiper-wrapper">
+
+ <%for(let i=0;i<newbeg.length;i++){%>
+   <div class="swiper-slide box">
+     <%if(newbeg[i].photo.length==0){%>
+       <img src="image/unknown.jpeg" alt="">
+     <%}else{%>
+       <img src="<%=newbeg[i].photo%>" alt="">
+     <%}%>
+       <h3><%=newbeg[i].name%></h3>
+       <p><b>Email: </b><%=newbeg[i].email%></p>
+       <p>
+         <b>Phone: </b>
+        <% if(newbeg[i].phone.length==10){%>
+      +91
+         <%}%>
+         <%=newbeg[i].phone%>
+
+       </p>
+
+       <p>
+      <b><%=newbeg[i].bio%></b>
+       </p>
+   </div>
+   <%}%>
+            <div class="swiper-slide box">
+                <img src="image/baldev.jpeg" alt="">
+                <h3>Baldev Singh</h3>
+                <p><b>Email: </b>singhbaldev@gmail.com</p>
+                <p>
+                  <b>Phone: </b>+91 9450259941
+                </p>
+                <p><b>
+                Hi, I'm baldev, A certified personal trainer. I have a soft spot for "newbies" and loves helping people ease into a healthy and active lifestyle with a "Make it Fun!" attitude.
+                </b></p>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="image/arshad.jpeg" alt="">
+                <h3>Arshad Alam</h3>
+                <p><b>Email: </b>arshadalam12@gmail.com</p>
+
+                <p>
+                    <b>Phone: </b>+91 9554678540
+                </p>
+
+                <p>
+                  <b>Hi, I'm Arshad, my circuit style class is sure to get you up and moving with a variety of different exercises that help to improve both muscular strength and cardiovascular fitness. </b>
+                </p>
+                </div>
+
+
+
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- review section ends -->
+
+<!-- blogs section starts  -->
+
+
+
+<!-- blogs section ends -->
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3> Fitify <i class="fas fa-dumbbell"></i> </h3>
+            <p>Train insane or remain the same.</p>
+            <div class="share">
+                <a href="https://www.facebook.com/harshit.gupta.5245961/" class="fab fa-facebook-f"></a>
+                <a href="https://twitter.com/harshit_22f" class="fab fa-twitter"></a>
+                <a href="https://www.instagram.com/harshit_22f/" class="fab fa-instagram"></a>
+                <a href="https://www.linkedin.com/in/harshit-gupta-a057191b7/" class="fab fa-linkedin"></a>
+            </div>
+        </div>
+
+        <div class="box">
+
+
+            <h3>contact info</h3>
+            <a href="#" class="links"> <i class="fas fa-phone"></i> +91 9828686997 </a>
+            <a href="#" class="links"> <i class="fas fa-phone"></i> +91 7080521535 </a>
+            <a href="https://mail.google.com/mail/u/0/#inbox?compose=new" class="links"> <i class="fas fa-envelope"></i>hrshtgupta006@gmail.com</a>
+            <a href="https://goo.gl/maps/UuCRpkYXMGAQpYQY7" class="links"> <i class="fas fa-map-marker-alt"></i> Varanasi, U.P., india - 221005 </a>
+        </div>
+
+
+
+        <div class="box">
+            <h3>newsletter</h3>
+            <p>subscribe for latest updates</p>
+            <input type="email" placeholder="your email" class="email">
+            <input type="submit" value="subscribe" class="btn">
+            <img src="image/payment.png" class="payment-img" alt="">
+        </div>
+
+    </div>
+
+    <div class="credit"> created by <span> Harshit Gupta </span> | IIT(BHU), Varanasi </div>
+
+</section>
+
+<!-- footer section ends -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="js/level.js"></script>
+
+</body>
+</html>
