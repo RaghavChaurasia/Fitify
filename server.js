@@ -2,15 +2,19 @@ require('dotenv').config({path: "./.env"});
 const express=require("express");
 const mongoose=require("mongoose");
 const bodyParser=require("body-parser");
+const cors = require('cors');  
+
+const app=express();
+app.use(cors());
+app.set("view engine", "ejs");
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(express.static("public"));
+
 const DB = process.env.DATABASE;
 mongoose.connect(DB,{useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false}).then(()=>{
   console.log("connection successful");
 }).catch((err)=>console.log(err));
 const date=require(__dirname+"/date.js")
-const app=express();
-app.set("view engine", "ejs");
-app.use(bodyParser.urlencoded({extended:true}));
-app.use(express.static("public"));
 const reviewschema = new mongoose.Schema({
 
   name:String,
